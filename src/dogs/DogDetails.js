@@ -16,7 +16,7 @@ const DogDetails = ({ dogs }) => {
     const found = dogs.find((dog) => dog.name === name);
     if (!found) history.replace("/dogs");
     setDog(found);
-  }, [dogs, name]);
+  }, [dogs, name, history]);
 
   return (
     <div className="DogDetails container">

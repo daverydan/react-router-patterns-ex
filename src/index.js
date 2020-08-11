@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
-import App from "./dogs/App";
-// import App from "./color-factory/App";
+// import App from "./dogs/App";
+import App from "./color-factory/App";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
