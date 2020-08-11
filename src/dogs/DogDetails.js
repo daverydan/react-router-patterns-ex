@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 const DogDetails = ({ dogs }) => {
   // { facts: [] }
@@ -10,9 +10,12 @@ const DogDetails = ({ dogs }) => {
   // as seen below { facts: [] }
   const [dog, setDog] = useState({ facts: [] });
   const { name } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
-    setDog(dogs.filter((dog) => dog.name === name)[0]);
+    const found = dogs.find((dog) => dog.name === name);
+    if (!found) history.replace("/dogs");
+    setDog(found);
   }, [dogs, name]);
 
   return (
