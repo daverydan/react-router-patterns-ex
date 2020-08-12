@@ -7,10 +7,12 @@ import ColorList from "./ColorList";
 import Color from "./Color";
 
 function App() {
-  const [colors, setColors] = useState([]);
+  const INITIAL_STATE = [{ name: "red", hex: "#f00" }];
+  const [colors, setColors] = useState(INITIAL_STATE);
   useEffect(() => {
     const myColors = localStorage.getItem("colors");
     if (myColors) setColors(JSON.parse(myColors));
+    else localStorage.setItem("colors", JSON.stringify(INITIAL_STATE));
   }, []);
   const addColor = (color) => {
     setColors((c) => [color, ...colors]);
